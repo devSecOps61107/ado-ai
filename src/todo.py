@@ -97,6 +97,20 @@ class TodoList:
         self._save_tasks()
         return task
 
+    def mark_complete(self, task_id: int) -> Optional[Dict]:
+        """Mark a task as complete. Returns the updated task or None if not found."""
+        # Bug: No validation of current status - allows marking already completed tasks as complete
+        task = self._get_task_by_id(task_id)
+        if task:
+            # Set status to completed
+            task['status'] = TaskStatus.COMPLETED.value
+            # Update completion timestamp
+            task['completed_at'] = datetime.now().isoformat()
+            self._update_task_metadata(task)
+            self._save_tasks()
+            return task
+        return None
+
     def list_tasks(self, status: Optional[str] = None, sort_by_status: bool = False) -> List[Dict]:
         """List all tasks, optionally filtered by status and sorted."""
         tasks = self.tasks.copy()  # Work with a copy to avoid modifying the original list
@@ -142,6 +156,10 @@ def main():
     update_parser.add_argument('-s', '--status', 
                              choices=[s.value for s in TaskStatus],
                              help='New task status')
+
+    # Complete task command
+    complete_parser = subparsers.add_parser('complete', help='Mark a task as complete')
+    complete_parser.add_argument('task_id', type=int, help='ID of the task to mark as complete')
 
     args = parser.parse_args()
     todo = TodoList()
@@ -189,6 +207,16 @@ def main():
                 print(f"  Description: {task['description']}")
             modified = datetime.fromisoformat(task['modified_at']).strftime('%Y-%m-%d %H:%M')
             print(f"  Last modified: {modified}")
+        else:
+            print(f"Task {args.task_id} not found")
+
+    elif args.command == 'complete':
+        task = todo.mark_complete(args.task_id)
+        if task:
+            print(f"Marked task {task['id']} as complete:")
+            print(f"  Title: {task['title']}")
+            completed = datetime.fromisoformat(task['completed_at']).strftime('%Y-%m-%d %H:%M')
+            print(f"  Completed at: {completed}")
         else:
             print(f"Task {args.task_id} not found")
     
