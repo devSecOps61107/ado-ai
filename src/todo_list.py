@@ -11,6 +11,7 @@ class TaskStatus(Enum):
     PENDING = "pending"
     IN_PROGRESS = "in-progress"
     COMPLETED = "completed"
+    BACKLOG = "backlog"
 
     def __str__(self):
         return self.value
