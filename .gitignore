@@ -1,0 +1,186 @@
+# Python
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.pytest_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+nosetests.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask instance folder
+instance/
+.webassets-cache
+
+# Scrapy
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# PEP 582
+__pypackages__/
+
+# Virtual environments
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+.virtualenv/
+virtualenv/
+pythonenv*
+
+# Development environment
+.direnv/
+.envrc
+.python-version-*
+*.code-workspace
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.vs/
+.atom/
+.komodotools/
+.kate-swp/
+*.komodoproject
+.settings/
+.project
+.pydevproject
+.classpath
+
+# Editor temporary files
+*.swp
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# dotenv
+.env
+
+# Test artifacts / coverage
+.tox/
+.pytest_cache/
+.mypy_cache/
+.pyre/
+.ruff_cache/
+.coverage.*
+.pytest_cache
+pytest.ini
+.coveralls.yml
+.testmondata
+.stestr/
+.mutmut-cache
+test-results/
+
+# Runtime and debugging
+*.pid
+*.sock
+.debug/
+*.stackdump
+*.profraw
+*.prof
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Databases
+*.sqlite3
+*..db
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Coverage and test artifacts (redundant but explicit)
+coverage.xml
+htmlcov/
+
+# Misc
+.ropeproject/
+.pytest_cache/
+.cache/
+
+# Notebook checkpoints
+.ipynb_checkpoints
+
+# Documentation
+docs/_build/
+docs/api/
+site/
+.pdoc/
+.autodoc/
+.sphinx-build/
+
+# Local development
+.env.local
+.env.*.local
+.secrets/
+config.local.py
+local_config.py
+
+# Dependencies
+.deps/
+requirements.local.txt
+requirements.dev.txt
+
+# End of file
