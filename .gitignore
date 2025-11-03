@@ -183,4 +183,7 @@ local_config.py
 requirements.local.txt
 requirements.dev.txt
 
+# APP Sepecific Ignored Files
+tasks.json
+
 # End of file
