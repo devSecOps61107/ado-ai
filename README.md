@@ -5,8 +5,11 @@ A simple command-line todo list application built with Python. This application 
 ## Features
 
 - Add new tasks with titles and optional descriptions
-- List all tasks
-- Filter tasks by status (pending/completed)
+- List all tasks with creation and modification timestamps
+- Filter and sort tasks by status (pending/in-progress/completed)
+- Update task title, description, and status
+- Delete tasks by ID
+- Task metadata tracking (created, modified, completed timestamps)
 - Data persistence using JSON storage
 - Command-line interface using argparse
 
@@ -43,10 +46,25 @@ python src/todo.py add "Task title" -d "Optional task description"
 python src/todo.py list
 ```
 
-### List tasks by status
+### List tasks with optional filtering and sorting
 ```bash
-python src/todo.py list -s pending
-python src/todo.py list -s completed
+python src/todo.py list                    # List all tasks
+python src/todo.py list -s pending         # Filter by status
+python src/todo.py list -s in-progress     # Show in-progress tasks
+python src/todo.py list -s completed       # Show completed tasks
+python src/todo.py list --sort             # Sort by status
+```
+
+### Update a task
+```bash
+python src/todo.py update 1 -t "New title"           # Update title
+python src/todo.py update 1 -d "New description"     # Update description
+python src/todo.py update 1 -s "completed"           # Update status
+```
+
+### Delete a task
+```bash
+python src/todo.py delete 1                # Delete task with ID 1
 ```
 
 ## Project Structure
@@ -71,10 +89,11 @@ To contribute to the project:
 
 ## Future Enhancements
 
-- Mark tasks as completed
-- Delete tasks
-- Edit existing tasks
-- Due dates for tasks
-- Task priorities
-- Unit tests
-- Task categories/tags
+- Add due dates for tasks
+- Add task priorities
+- Add task categories/tags
+- Add task search functionality
+- Add batch operations
+- Add task export/import
+- Add unit tests
+- Add task reminders
