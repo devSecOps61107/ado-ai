@@ -80,12 +80,30 @@ ENV/
 env.bak/
 venv.bak/
 .venv/
+.virtualenv/
+virtualenv/
+pythonenv*
+
+# Development environment
+.direnv/
+.envrc
+.python-version-*
+*.code-workspace
 
 # IDEs and editors
 .vscode/
 .idea/
 *.sublime-project
 *.sublime-workspace
+.vs/
+.atom/
+.komodotools/
+.kate-swp/
+*.komodoproject
+.settings/
+.project
+.pydevproject
+.classpath
 
 # Editor temporary files
 *.swp
@@ -103,6 +121,23 @@ Thumbs.db
 .pytest_cache/
 .mypy_cache/
 .pyre/
+.ruff_cache/
+.coverage.*
+.pytest_cache
+pytest.ini
+.coveralls.yml
+.testmondata
+.stestr/
+.mutmut-cache
+test-results/
+
+# Runtime and debugging
+*.pid
+*.sock
+.debug/
+*.stackdump
+*.profraw
+*.prof
 
 # Logs and temporary files
 *.log
@@ -127,5 +162,25 @@ htmlcov/
 
 # Notebook checkpoints
 .ipynb_checkpoints
+
+# Documentation
+docs/_build/
+docs/api/
+site/
+.pdoc/
+.autodoc/
+.sphinx-build/
+
+# Local development
+.env.local
+.env.*.local
+.secrets/
+config.local.py
+local_config.py
+
+# Dependencies
+.deps/
+requirements.local.txt
+requirements.dev.txt
 
 # End of file
