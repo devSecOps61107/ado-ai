@@ -1,0 +1,8 @@
+# Core dependencies
+argparse>=1.4.0  # Command line argument parsing
+
+# Development dependencies
+pytest>=7.0.0    # Testing framework
+black>=22.0.0    # Code formatting
+flake8>=4.0.0    # Code linting
+mypy>=0.900      # Static type checking
