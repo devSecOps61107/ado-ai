@@ -4,22 +4,46 @@ A simple command-line todo list application that stores tasks in a JSON file.
 """
 
 import argparse
-import json
 import os
-from datetime import datetime
-from enum import Enum
-from typing import Dict, List, Optional, Union
+from .todo_list import TodoList
+from .operations import (
+    AddTaskOperation,
+    ListTasksOperation,
+    UpdateTaskOperation,
+    DeleteTaskOperation,
+    CompleteTaskOperation
+)
 
 # Constants
 TASKS_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), "tasks.json")
 
-class TaskStatus(Enum):
-    PENDING = "pending"
-    IN_PROGRESS = "in-progress"
-    COMPLETED = "completed"
+def main():
+    """Main entry point for the todo application."""
+    parser = argparse.ArgumentParser(description='Todo List CLI')
+    subparsers = parser.add_subparsers(dest='command', help='Commands')
 
-    def __str__(self):
-        return self.value
+    # Initialize TodoList
+    todo_list = TodoList(TASKS_FILE)
+
+    # Initialize operations
+    operations = {
+        'add': AddTaskOperation(todo_list),
+        'list': ListTasksOperation(todo_list),
+        'update': UpdateTaskOperation(todo_list),
+        'delete': DeleteTaskOperation(todo_list),
+        'complete': CompleteTaskOperation(todo_list)
+    }
+
+    # Add parsers for each operation
+    for operation in operations.values():
+        operation.add_parser(subparsers)
+
+    # Parse arguments and handle the command
+    args = parser.parse_args()
+    if args.command and args.command in operations:
+        operations[args.command].handle_args(args)
+    else:
+        parser.print_help()
 
 class TodoList:
     def __init__(self, tasks_file: str = TASKS_FILE):
