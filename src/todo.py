@@ -99,7 +99,7 @@ class TodoList:
 
     def list_tasks(self, status: Optional[str] = None, sort_by_status: bool = False) -> List[Dict]:
         """List all tasks, optionally filtered by status and sorted."""
-        tasks = self.tasks
+        tasks = self.tasks.copy()  # Work with a copy to avoid modifying the original list
         if status:
             tasks = [task for task in tasks if task['status'] == status]
         
@@ -111,6 +111,7 @@ class TodoList:
                 TaskStatus.COMPLETED.value: 2
             }
             tasks = sorted(tasks, key=lambda x: (status_order.get(x['status'], 999), x['created_at']))
+        return tasks
 
 def main():
     parser = argparse.ArgumentParser(description='Todo List CLI')
