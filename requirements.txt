@@ -1,8 +1,15 @@
 # Core dependencies
-argparse>=1.4.0  # Command line argument parsing
+argparse>=1.4.0      # Command line argument parsing
+fastapi>=0.70.0      # REST API framework
+uvicorn>=0.15.0     # ASGI server
+python-jose>=3.3.0   # JWT token handling
+python-multipart>=0.0.5  # Form data handling
+requests>=2.26.0     # HTTP client for CLI
+pydantic>=1.9.0      # Data validation
 
 # Development dependencies
-pytest>=7.0.0    # Testing framework
-black>=22.0.0    # Code formatting
-flake8>=4.0.0    # Code linting
-mypy>=0.900      # Static type checking
+pytest>=7.0.0        # Testing framework
+black>=22.0.0        # Code formatting
+flake8>=4.0.0        # Code linting
+mypy>=0.900          # Static type checking
+httpx>=0.24.0        # Async HTTP client for testing
